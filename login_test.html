@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Administrasi Online</title>
+
+    <!-- Bootstrap 4 CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for eye icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #4e73df, #1cc88a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 20px;
+        }
+
+        .login-card .card-body {
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .login-card .card-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .login-card .form-control {
+            border-radius: 4px;
+            box-shadow: none;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .login-card .form-control:focus {
+            border-color: #4e73df;
+            box-shadow: 0 0 10px rgba(78, 115, 223, 0.5);
+        }
+
+        .login-card .btn {
+            background-color: #4e73df;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .login-card .btn:hover {
+            background-color: #2e59d9;
+            transform: scale(1.05);
+        }
+
+        .login-card .btn:active {
+            transform: scale(1);
+        }
+
+        .login-card img {
+            width: 70%;
+            max-height: 200px;
+            object-fit: contain;
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-footer a {
+            color: #4e73df;
+        }
+
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animation */
+        .login-card .card-body {
+            animation: fadeInUp 0.5s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #6c757d;
+            z-index: 10;
+        }
+
+        .toggle-password:hover {
+            color: #4e73df;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row d-flex justify-content-center">
+        <div class="card login-card">
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <img src="http://localhost:8080/img/kab-logo.png" alt="Desa Telagamurni Logo" class="mb-3">
+                    <h3 class="card-title">Login Administrasi Online</h3>
+                    <p class="text-muted">Masukkan NIK dan password untuk melanjutkan.</p>
+                </div>
+
+                <form method="POST" action="http://localhost:8080/login">
+                    <input type="hidden" name="_token" value="RrBFWa7uZBuGMP3svMJ7sTitPIP6gEaTJgtJfNKR" autocomplete="off">
+                    <div class="form-group">
+                        <input id="nik" type="text"
+                            class="form-control onlynumber " name="nik"
+                            placeholder="Masukkan NIK" value="" required maxlength="16">
+                                            </div>
+
+                    <div class="form-group password-wrapper">
+                        <input id="password" type="password"
+                            class="form-control " name="password"
+                            placeholder="Masukkan Password" required>
+                        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                                            </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary w-100 mt-4">Login</button>
+                    </div>
+                </form>
+
+                <div class="login-footer mt-4">
+                                            <p>Belum punya akun? <a href="http://localhost:8080/register">Buat akun baru</a></p>
+                                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 4 JS & jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Toggle password visibility
+            $('#togglePassword').click(function() {
+                const passwordField = $('#password');
+                const passwordFieldType = passwordField.attr('type');
+                const icon = $(this);
+
+                if (passwordFieldType === 'password') {
+                    passwordField.attr('type', 'text');
+                    icon.removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    passwordField.attr('type', 'password');
+                    icon.removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
+
+            $(document).on('keyup', '.onlynumber', function() {
+                let text = $(this).val()
+                text = text.replace(/[^0-9]/, "");
+                $(this).val(text);
+            });
+        })
+    </script>
+</body>
+
+</html>

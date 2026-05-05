@@ -1,0 +1,164 @@
+html, body {
+    height: 100%;
+}
+
+main {
+    flex: 1;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #f1f9fc, #d9eaf2);
+    color: #333; /* Dark gray text for high contrast */
+    font-size: 18px; /* Larger text for readability */
+    font-family: Arial, sans-serif;
+    display: flex;
+            flex-direction: column;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #33a9d7, #008cba, #006f91);
+    color: white;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 32px; /* Larger text for header */
+}
+
+/* Navbar Styling */
+.navbar {
+    background: linear-gradient(135deg, #33a9d7, #008cba, #006f91);
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-size: 20px; /* Larger font for links */
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #007b9d; /* Darker blue on hover */
+    color: white;
+}
+
+/* Submenu Dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: #f1f1f1; /* Light background for dropdown */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #333; /* Dark gray for items */
+    font-size: 18px;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #ddd; /* Light gray on hover */
+    color: #333;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        width: 100%;
+    }
+}
+
+/* Footer Styling */
+footer {
+    background: linear-gradient(135deg, #33a9d7, #008cba, #006f91);
+}
+.hover-link:hover {
+    color: #003366 !important;
+    text-decoration: underline;
+}
+
+.footer a {
+    transition: all 0.3s ease;
+}
+
+/* Center the text and button in the middle of the image */
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item img {
+    /* Apply blur effect */
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px); For Safari */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay for text and button */
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 1; /* Ensure the caption is above the blurred image */
+}
+
+.carousel-caption h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    font-size: 1.25rem;
+}
+
+.carousel-caption .btn {
+    padding: 12px 25px;
+    font-size: 1.25rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.carousel-caption .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Ensuring full-width images */
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.custom-container {
+    max-width: 60vw;
+}
+
+.text-primary{
+    color: #008cba !important;
+}
+
+a {
+    text-decoration: none !important;
+}

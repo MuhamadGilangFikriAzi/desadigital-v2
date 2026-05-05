@@ -1,0 +1,7 @@
+laravel/node_modules
+laravel/vendor
+laravel/.env
+laravel/storage/*
+laravel/public/storage
+.git/
+.gitignore
