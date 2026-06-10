@@ -1,0 +1,12 @@
+/admin/home: 200 PASS Web Desa Digital
+/admin/surat: 500 FAIL DesaDigital
+/admin/aparatur: 200 PASS Web Desa Digital
+/admin/news: 200 PASS Web Desa Digital
+/admin/users: 200 PASS Web Desa Digital
+/admin/stores: 200 PASS Web Desa Digital
+/admin/products: 500 FAIL DesaDigital
+/admin/villagedata: 200 PASS Web Desa Digital
+/admin/refmaster: 500 FAIL DesaDigital
+/admin/roles: 200 PASS Web Desa Digital
+/admin/permissions: 200 PASS Web Desa Digital
+/admin/templatesurat: 200 PASS Web Desa Digital
